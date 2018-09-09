@@ -43,8 +43,10 @@ a data-visualised graph showing churn-risk (low-medium-high) , alongwith top rea
 Also through the feature of **Upload test data** , one can choose his/her own test requirements for prediction and analysis.
 
 ![test](https://user-images.githubusercontent.com/31181537/45265530-f765a680-b469-11e8-8340-e1bfbdbebbcc.JPG)
+
 As usual , you can select any customer for whom you want to calculate the risk.
 **Keep in mind**- The user testdata file must be of **same format** as that of the sample shown.
+
 ![test1](https://user-images.githubusercontent.com/31181537/45265532-1106ee00-b46a-11e8-8cbd-f59b0a3f2b0d.JPG)
 
 It shows the prediction further:
