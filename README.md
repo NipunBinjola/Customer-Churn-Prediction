@@ -10,11 +10,49 @@ Username - ```dhfl``` <br>
 Password - ```dhfl```
 
 ## How to use the web-app - a walkthrough
+
 Visit the link mentioned above to launch the fully functional web-application.
+On clicking the link, a page like this will appear:
+
+![capture](https://user-images.githubusercontent.com/31181537/45265262-bb304700-b465-11e8-8398-c8e67bb135e9.JPG)
+
+Enter the login credentials provided above, **note** that entering wrong credentials will prevent user-login!
+
+![fail_login](https://user-images.githubusercontent.com/31181537/45265276-05b1c380-b466-11e8-8bd7-f058cdb56a2b.JPG)
+
+Now , user will have the choice of entering request data.
+
+![home](https://user-images.githubusercontent.com/31181537/45265317-8e306400-b466-11e8-96e5-8f645c54baca.JPG)
+
+Through Default File , we have provided a sample testing file- ```testtestdefault1``` for the user , which is of this format:
+![testestdefault1](https://user-images.githubusercontent.com/31181537/45265411-0e0afe00-b468-11e8-9c28-cc6a50a40909.JPG)
+
+As shown , the file requires these entries , alongwith an empty column of *Exited* which represents exiting probability from 0-1.
 
 
+Now, on clicking **Predict** , a dropdown menu consisting of all employee-ids is available with a go-back option:
 
-## Getting Started
+![selectdefault](https://user-images.githubusercontent.com/31181537/45265453-a3a68d80-b468-11e8-913f-21d79a2ae2d5.JPG)
+
+Select any customer from drop-down menu and click **Predict** -
+
+![output default](https://user-images.githubusercontent.com/31181537/45265505-74445080-b469-11e8-8192-27501cafd314.jpeg)
+
+a data-visualised graph showing churn-risk (low-medium-high) , alongwith top reasons for leaving and details of customers is shown.
+
+Also through the feature of **Upload test data** , one can choose his/her own test requirements for prediction and analysis.
+
+![test](https://user-images.githubusercontent.com/31181537/45265530-f765a680-b469-11e8-8340-e1bfbdbebbcc.JPG)
+As usual , you can select any customer for whom you want to calculate the risk.
+**Keep in mind**- The user testdata file must be of **same format** as that of the sample shown.
+![test1](https://user-images.githubusercontent.com/31181537/45265532-1106ee00-b46a-11e8-8cbd-f59b0a3f2b0d.JPG)
+
+It shows the prediction further:
+![output](https://user-images.githubusercontent.com/31181537/45265575-b8842080-b46a-11e8-8881-521ff05b9279.jpeg)
+
+When done , customer can **Logout** anytime .
+
+## Getting Started to run 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
