@@ -1,4 +1,4 @@
-# Customer Churn Prediction and reason for leaving prediction using Machine Learning
+# Customer Churn Prediction and Reason for leaving Prediction using Machine Learning
 
 We have built a sample prototype to demonstrate how we will develop real industry level solutions. This prototype  helps to identify  about-to-withdraw customers  and act accordingly to ensure that the bank can take the best-possible course of actions. Also the prototype predicts the possible reasons of leaving for a customer which may give a better picture of customer thoughts.
 
@@ -6,6 +6,7 @@ We have built a sample prototype to demonstrate how we will develop real industr
 This prototype to predict customer churn is live at http://predictkaro.herokuapp.com/ !!
 We have deployed whole machine-learning model on web for ease-of-access . Simply go to this url and login using the below 
 username and password . 
+
 Username - ```dhfl``` <br>
 Password - ```dhfl```
 
@@ -17,8 +18,6 @@ On clicking the link, a page like this will appear:
 ![capture](https://user-images.githubusercontent.com/31181537/45265262-bb304700-b465-11e8-8398-c8e67bb135e9.JPG)
 
 Enter the login credentials provided above, **note** that entering wrong credentials will prevent user-login!
-
-![fail_login](https://user-images.githubusercontent.com/31181537/45265276-05b1c380-b466-11e8-8bd7-f058cdb56a2b.JPG)
 
 Now , user will have the choice of entering request data.
 
@@ -50,11 +49,12 @@ As usual , you can select any customer for whom you want to calculate the risk.
 ![test1](https://user-images.githubusercontent.com/31181537/45265532-1106ee00-b46a-11e8-8cbd-f59b0a3f2b0d.JPG)
 
 It shows the prediction further:
+
 ![output](https://user-images.githubusercontent.com/31181537/45265575-b8842080-b46a-11e8-8881-521ff05b9279.jpeg)
 
 When done , customer can **Logout** anytime .
 
-## Getting Started to run 
+## How to run locally 
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -72,7 +72,8 @@ The following main Python-based libraries have been used :
 
 which will be installed during setting the environment.
 
-### How to run locally
+### x
+
 Provided the requirements are already installed in your system , you can simply execute the .py script named ```(nameOfMain)```
 However, for future deployment purposes it is essential to create a virtual environment.
 
@@ -101,10 +102,8 @@ Example:
 For more information about ```pip``` you can refer [documentation](https://docs.python.org/3/installing/index.html)
 
 #### Step 4 : Execute script
-When all python dependencies are installed , simply execute the .py script named ```(nameOfMain)```  
-```python (nameofFile) ``` in the cmd prompt should do the task.
+When all python dependencies are installed , simply execute the .py script named ```flask_app.py```  
+```python flask_app.py ``` in the cmd prompt should do the task.
 Follow the link generated, and the flask code should be up and running !
 
-## How to deploy as a web app:
-A number of services are available for web-deployment using a Platform-as-a-Service (PAAS) . One such platorm
 
