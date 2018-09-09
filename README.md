@@ -24,7 +24,9 @@ Now , user will have the choice of entering request data.
 ![home](https://user-images.githubusercontent.com/31181537/45265317-8e306400-b466-11e8-96e5-8f645c54baca.JPG)
 
 Through Default File , we have provided a sample testing file- ```testtestdefault1``` for the user , which is of this format:
-![testestdefault1](https://user-images.githubusercontent.com/31181537/45265411-0e0afe00-b468-11e8-9c28-cc6a50a40909.JPG)
+
+![testestdefault1](https://user-images.githubusercontent.com/31181537/45266047-a7d7a880-b472-11e8-8f4d-78682f200f6c.JPG)
+
 
 As shown , the file requires these entries , alongwith an empty column of *Exited* which represents exiting probability from 0-1.
 
@@ -40,8 +42,10 @@ Select any customer from drop-down menu and click **Predict** -
 a data-visualised graph showing churn-risk (low-medium-high) , alongwith top reasons for leaving and details of customers is shown.
 
 Also through the feature of **Upload test data** , one can choose his/her own test requirements for prediction and analysis.
+We have provided a sample ```uploadtest.csv``` for the user.
 
-![test](https://user-images.githubusercontent.com/31181537/45265530-f765a680-b469-11e8-8340-e1bfbdbebbcc.JPG)
+![uploadtest](https://user-images.githubusercontent.com/31181537/45266110-6b587c80-b473-11e8-9538-623c9e054116.JPG)
+
 
 As usual , you can select any customer for whom you want to calculate the risk.
 **Keep in mind**- The user testdata file must be of **same format** as that of the sample shown.
@@ -53,6 +57,13 @@ It shows the prediction further:
 ![output](https://user-images.githubusercontent.com/31181537/45265736-98a22c00-b46d-11e8-876f-d2e1b972635d.jpeg)
 
 When done , customer can **Logout** anytime .
+
+
+Our web-app uses pre-loaded ```.h5``` models for prediction . These ```.h5``` models are built on our local machines using Python.
+The models are based on *Keras and Neural networks* . So we need Keras and other Machine Learning libraries on our web environment to 
+load this pre-defined models.
+In our live web-app we have already made the environment.If you want to know how our models are trained on local machines and you want to see the working & code of models, check the code of ```howmodel1isbuilt.py``` and ```howmodel2isbuilt.py```
+
 
 ## How to run locally 
 
