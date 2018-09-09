@@ -72,8 +72,6 @@ The following main Python-based libraries have been used :
 
 which will be installed during setting the environment.
 
-### x
-
 Provided the requirements are already installed in your system , you can simply execute the .py script named ```(nameOfMain)```
 However, for future deployment purposes it is essential to create a virtual environment.
 
