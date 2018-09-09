@@ -116,7 +116,7 @@ When all python dependencies are installed , simply execute the .py script named
 Follow the link generated, and the flask code should be up and running !
 
 ## Creators
-* Ashish Bhawnani
-* Nipun Binjola
-* Akash Rana
-* Rahul Chauhan
+* [Ashish Bhawnani](https://github.com/ashishgeeky)
+* [Nipun Binjola](https://github.com/NipunBinjola)
+* [Akash Rana](https://github.com/akash29rana)
+* [Rahul Chauhan](https://github.com/RanaRauff)
