@@ -1,0 +1,149 @@
+<html><head><meta charset="utf-8" /> <script src="/static/js/RGraph.common.core.js"></script>
+<script src="/static/js/RGraph.common.dynamic.js"></script>
+<script src="/static/js/RGraph.common.context.js"></script>
+<script src="/static/js/RGraph.common.annotate.js"></script>
+<script src="/static/js/RGraph.bar.js"></script>
+<script src="/static/js/RGraph.meter.js"></script>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 40%;
+    padding: 10px;
+
+}
+.column2 {
+    float: left;
+    width: 60%;
+    padding: 10px;
+   
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.button {
+    background-color: #3498DB;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+
+
+<script>
+    window.onload = function ()
+    {
+        var bar = new RGraph.Bar({
+            id: 'cvss',
+            data:  [{% for item in values_res %}
+                      {{item}},
+                    {% endfor %}],
+            options: {
+                labels: ["Excess Documents Required","High Service Charges/Rate of Interest","Inexperienced Staff / Bad customer service","Long Response Times"],
+                annotatable: false,
+		showInLegend:true,
+                annotateLinewidth: 20,
+                strokestyle: 'rgba(0,0,0,0)',
+                contextmenu: [['Clear', function () {RGraph.Clear(bar.canvas); RGraph.ClearAnnotations(bar.canvas); bar.Draw();}]],
+                textSize: 7,
+                noxaxis: true,
+                backgroundGridVlines: false,
+                backgroundGridBorder: false,
+                gutterLeft: 35,
+                textAccessible: true
+            }
+        }).draw();
+    };
+</script>
+
+<div class="row">
+ <div class="column1" style="background-color:#F0FFFF;">
+<font color=purple><center><h2>Customer Details</h2></font>
+ <h3>RowNumber     : {{rownum}} </h3>
+ <h3>CustomerID    : {{ccid}} </h3>
+ <h3>Surname       : {{surname}} </h3>
+ <h3>CreditScore   : {{creditscore}}</h3>
+ <h3>Geography     : {{geo}}</h3>
+ <h3>Gender        : {{gender}}</h3>
+ <h3>Age           : {{age}}</h3>
+ <h3>Tenure        : {{tenure}}</h3>
+ <h3>Balance       : {{balance}}</h3>
+ <h3>NumofProducts : {{numpro}}</h3>
+ <h3>HasCrCard     : {{hascard}}</h3>
+ <h3>IsActiveMember: {{activemem}}</h3>
+ <h3>Salary        : {{salary}}</h3>
+
+<a href="javascript:history.back()" class="button">Go back to CustomerID selection in this file</a>
+<br>
+<a href="/backtofile" class="button">Go back to file upload</a>
+<br>
+<a href="/logout" class="button">Logout</a>
+
+</div>
+
+  <div class="column2">
+<font color=purple>
+<center><h2>Prediction of Customer Churn Probability</h2></center></font>
+    	<canvas id="cvs" width="780" height="200">
+    	[No canvas support]
+	</canvas>
+
+<font color=orange>
+     <center> <h3>Probability to leave organization is {{ firstname }}%</h3></center></font>
+<hr>
+	<script>
+    	
+    meter = new RGraph.Meter({
+        id: 'cvs',
+        min: 0,
+        max: 100,
+        value:  [{% for item in values %}
+                      {{item}},
+                    {% endfor %}],
+        options: {
+            segmentRadiusStart: 125,
+            needleRadius: 115,
+            needleType: 'pointer',
+            tickmarksBigColor: 'transparent',
+            tickmarksSmallColor: 'transparent',
+            labels: false,
+            linewidth: 0.0001,
+            linewidthSegments: 20,
+            strokestyle: 'white',
+            colorsRanges: [
+                [0, 33, '#8FCE21'],
+                [33, 66, '#FFC900'],
+                [66, 100, '#FF0000']
+            ]
+        }
+    }).grow();
+    
+    
+</script>
+<font color=purple>
+<center><h2>Prediction of Reason for Leaving</h2></center></font>
+    <canvas id="cvss" width="780" height="300">
+     [No canvas support]
+    </canvas>
+<font size=3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{secondname}}%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{secondname1}}%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{secondname2}}%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{secondname3}}%</font>
+  </div>
+</div>
+</body>
+</html>
