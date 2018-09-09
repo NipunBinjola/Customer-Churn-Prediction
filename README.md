@@ -1,6 +1,18 @@
-# Customer Churn Prediction
+# Customer Churn Prediction and reason for leaving prediction using Machine Learning
 
-We have built a sample prototype to demonstrate how we will develop real industry level prototype. This prototype may help to identify and create possible technical/non-technical solutions which helps the bank identifying about-to-withdraw customers and act accordingly to ensure that the bank can take the best-possible course of actions. 
+We have built a sample prototype to demonstrate how we will develop real industry level solutions. This prototype  helps to identify  about-to-withdraw customers  and act accordingly to ensure that the bank can take the best-possible course of actions. Also the prototype predicts the possible reasons of leaving for a customer which may give a better picture of customer thoughts.
+
+### Using this prototype live !
+This prototype to predict customer churn is live at http://predictkaro.herokuapp.com/ !!
+We have deployed whole machine-learning model on web for ease-of-access . Simply go to this url and login using the below 
+username and password . 
+Username - ```dhfl``` <br>
+Password - ```dhfl```
+
+## How to use the web-app - a walkthrough
+Visit the link mentioned above to launch the fully functional web-application.
+
+
 
 ## Getting Started
 
@@ -36,7 +48,7 @@ Activate using ```activate env```
 To exit from the virtual environment , simply execute ```deactivate env ```
 For further information , you can refer [here](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/20/conda/)
 
-### Step 3 : Install required libraries
+#### Step 3 : Install required libraries
 Anaconda distribution comes with many default downloaded libraries which the user can directly , however to efficiently manage the
 environment , manually install libraries.
 A simple way would be to use ```pip``` - Python default package manager
@@ -48,7 +60,11 @@ Example:
 
 For more information about ```pip``` you can refer [documentation](https://docs.python.org/3/installing/index.html)
 
-### Step 4 : Execute script
+#### Step 4 : Execute script
 When all python dependencies are installed , simply execute the .py script named ```(nameOfMain)```  
 ```python (nameofFile) ``` in the cmd prompt should do the task.
 Follow the link generated, and the flask code should be up and running !
+
+## How to deploy as a web app:
+A number of services are available for web-deployment using a Platform-as-a-Service (PAAS) . One such platorm
+
