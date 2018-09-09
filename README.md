@@ -35,7 +35,7 @@ Now, on clicking **Predict** , a dropdown menu consisting of all employee-ids is
 
 Select any customer from drop-down menu and click **Predict** -
 
-![output default](https://user-images.githubusercontent.com/31181537/45265505-74445080-b469-11e8-8192-27501cafd314.jpeg)
+![output default](https://user-images.githubusercontent.com/31181537/45265733-8627f280-b46d-11e8-878e-6bb7856a89b6.jpeg)
 
 a data-visualised graph showing churn-risk (low-medium-high) , alongwith top reasons for leaving and details of customers is shown.
 
@@ -50,7 +50,7 @@ As usual , you can select any customer for whom you want to calculate the risk.
 
 It shows the prediction further:
 
-![output](https://user-images.githubusercontent.com/31181537/45265575-b8842080-b46a-11e8-8881-521ff05b9279.jpeg)
+![output](https://user-images.githubusercontent.com/31181537/45265736-98a22c00-b46d-11e8-876f-d2e1b972635d.jpeg)
 
 When done , customer can **Logout** anytime .
 
