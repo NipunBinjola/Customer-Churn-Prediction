@@ -1,0 +1,87 @@
+<html><head><meta charset="utf-8" /> <script src="static/RGraph.common.core.js"></script>
+<script src='static/Chart.min.js'></script>
+<script src="static/RGraph.meter.js"></script></head>
+
+<body>
+<canvas id="cvs" width="600" height="300">
+    [No canvas support]
+</canvas>
+<script>
+    	
+    meter = new RGraph.Meter({
+        id: 'cvs',
+        min: 0,
+        max: 100,
+        value:  [{% for item in values %}
+                      {{item}},
+                    {% endfor %}],
+        options: {
+            segmentRadiusStart: 125,
+            needleRadius: 115,
+            needleType: 'pointer',
+            tickmarksBigColor: 'transparent',
+            tickmarksSmallColor: 'transparent',
+            labels: false,
+            linewidth: 0.0001,
+            linewidthSegments: 20,
+            strokestyle: 'white',
+            colorsRanges: [
+                [0, 33, '#8FCE21'],
+                [33, 66, '#FFC900'],
+                [66, 100, '#FF0000']
+            ]
+        }
+    }).grow();
+    
+    meter.canvas.onclick = function (e)
+    {
+        var value = meter.getValue(e);
+        
+        meter.value = value;
+        meter.grow();
+    }
+</script>
+<script>
+   // bar chart data
+   var barData = {
+   labels : [{% for item in labels_res %}
+                  "{{item}}",
+              {% endfor %}],
+   datasets : [
+      {
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+         data : [{% for item in values_res %}
+                      {{item}},
+                    {% endfor %}]
+      }
+      ]
+   }
+ 
+   // get bar chart canvas
+   var mychart = document.getElementById("chart").getContext("2d");
+ 
+   steps = 10
+   max = 10
+   // draw bar chart
+   new Chart(mychart).Bar(barData, {
+        scaleOverride: true,
+        scaleSteps: steps,
+        scaleStepWidth: Math.ceil(max / steps),
+        scaleStartValue: 0,
+        scaleShowVerticalLines: true,
+        scaleShowGridLines : true,
+        barShowStroke : true,
+        scaleShowLabels: true
+   });
+ 
+</script>
+<font color=green>
+      <h3>Our Output is {{ firstname }}!</h3></font>
+      <br>
+      <h3>Reason is {{ secondname }}!</h3>
+      <br>
+      <h2><a href='/logout'>Logout</a><h2>
+</body>
+</html>
