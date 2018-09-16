@@ -1,0 +1,9 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited,Reason for exiting company
+1,23109012,Verma,450,Spain,Male,38,1,0,1,1,1,70137.92,,
+2,34749931,Gupta,620,Germany,Male,22,2,0,2,1,0,98672.9,,
+3,19812322,Himani,511,Spain,Female,27,3,14010.01,3,0,1,87132.2,,
+4,57833388,Vikram,728,France,Male,34,3,0,1,0,0,65124.8,,
+5,90121312,Jenny,661,France,Female,33,6,0,2,0,1,39922.7,,
+6,35619304,Henna,502,France,Female,49,7,12966.82,3,1,0,103031.57,,
+7,24857454,Ridhima,710,France,Female,29,1,0,3,0,0,83826.63,,
+8,75572918,Rahul,482,Spain,Male,42,2,10681.53,1,1,0,128643.35,,
