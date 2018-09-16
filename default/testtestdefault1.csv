@@ -1,0 +1,9 @@
+RowNumber,CustomerId,Surname,CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary,Exited,Reason for exiting company
+1,87809012,Pankaj,700,Spain,Male,28,4,0,2,0,0,80134.88,,
+2,87732931,Sharma,580,Germany,Male,32,4,10020.01,3,1,0,438773.2,,
+3,87812322,Santosh,721,Spain,Female,37,7,10010.01,1,0,1,107332.2,,
+4,87829388,Vijay,428,France,Male,24,3,0,1,0,0,65124.8,,
+5,87721312,Poonam,511,France,Female,43,7,109102.4,1,0,1,831021.3,,
+6,15619304,Onio,502,France,Female,42,8,159660.8,3,1,0,113931.57,,
+7,15701354,Boni,699,France,Female,39,1,0,2,0,0,93826.63,,
+8,15762418,Gant,750,Spain,Male,22,3,121681.82,1,1,0,128643.35,,

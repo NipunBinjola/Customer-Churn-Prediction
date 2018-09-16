@@ -1,0 +1,85 @@
+<html ><head><meta charset="utf-8" /> <script src="/static/js/RGraph.common.core.js"></script>
+<script src="/static/js/RGraph.common.dynamic.js"></script>
+<script src="/static/js/RGraph.common.tooltips.js"></script>
+<script src="/static/js/RGraph.hbar.js"></script>
+<script src="/static/js/RGraph.common.key.js"></script>
+<style>
+.button {
+    background-color: #3498DB;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<link rel="stylesheet" href="/static/css/style.css" type="text/css">
+
+<div class="login" style="width:800px;">
+            <div class="login-screen">
+                <div class="app-title">
+                <h2>Show Top Percent from list of uploaded file</h2>
+		<h4>Select on any customer's bar to generate link for accessing customer's details and prediction of reason for leaving</h4>
+                </div>
+    
+                <div class="login-form">
+                    <div class="control-group">
+			
+                       
+		<canvas id="cvss" width="600" height="400" >
+    		[No canvas support]
+		</canvas>
+			
+                    </div>   
+		 
+		  <a href="javascript:history.back()" class="button">Go back</a>
+
+                  
+                </div>
+            </div>
+        </div>
+
+
+
+<script>
+    window.onload = function ()
+    {
+        var hbar = new RGraph.HBar({
+            id: 'cvss',
+            data:    [{% for item in values_res %}
+                      {{item}},
+                    {% endfor %}],
+            options: {
+                backgroundGrid: false,
+                xmax: 100,
+                scaleDecimals: 1,
+                colors: ['#FDB515','#FDB515','#FDB515','#FDB515','#FDB515'],
+                colorsSequential: true,
+		tooltips: [
+                {% for l in outList %}
+                 'link : <a href="/check_default/{{l}}" value="{{l}}" >{{l}}</a>',
+                 {% endfor %}],
+                labels:  [{% for item in outList %}
+                      "{{item}}",
+                    {% endfor %}],
+		
+                labelsAbove: true,
+                labelsAboveDecimals: 1,
+		labelsAboveUnitsPost: '%',
+                noxaxis: true,
+                gutterLeft: 125,
+                xlabels: false,
+                textAccessible: true
+            }
+        }).grow();
+    };
+</script>
+
+</body>
+</html>

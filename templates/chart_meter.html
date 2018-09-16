@@ -1,0 +1,196 @@
+<html><head><meta charset="utf-8" /> <script src="/static/js/RGraph.common.core.js"></script>
+ <script src='/static/js/Chart.min.js'></script>
+<script src="/static/js/RGraph.common.dynamic.js"></script>
+<script src="/static/js/RGraph.common.context.js"></script>
+<script src="/static/js/RGraph.common.annotate.js"></script>
+<script src="/static/js/RGraph.bar.js"></script>
+<script src="/static/js/RGraph.meter.js"></script>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column1 {
+    float: left;
+    width: 40%;
+    padding: 10px;
+
+}
+.column2 {
+    float: left;
+    width: 60%;
+    padding: 10px;
+   
+}
+.column3 {
+    float: right;
+    width: 60%;
+    padding: 10px;
+   
+}
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.button {
+    background-color: #3498DB;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+
+
+<script>
+    window.onload = function ()
+    {
+        var bar = new RGraph.Bar({
+            id: 'cvss',
+            data:  [{% for item in values_res %}
+                      {{item}},
+                    {% endfor %}],
+            options: {
+                labels: ["Excess Documents Required","High Service Charges/Rate of Interest","Inexperienced Staff / Bad customer service","Long Response Times"],
+                annotatable: false,
+		showInLegend:true,
+                annotateLinewidth: 20,
+                strokestyle: 'rgba(0,0,0,0)',
+                contextmenu: [['Clear', function () {RGraph.Clear(bar.canvas); RGraph.ClearAnnotations(bar.canvas); bar.Draw();}]],
+                textSize: 7,
+                noxaxis: true,
+                backgroundGridVlines: false,
+                backgroundGridBorder: false,
+                gutterLeft: 35,
+                textAccessible: true
+            }
+        }).draw();
+    };
+</script>
+
+<div class="row">
+ <div class="column1" style="background-color:#F0FFFF;">
+<font color=purple><center><h2><u>Customer Details</u></h2></font><br>
+ <h3>RowNumber     : {{rownum}} </h3>
+ <h3>CustomerID    : {{ccid}} </h3>
+ <h3>Surname       : {{surname}} </h3>
+ <h3>CreditScore   : {{creditscore}}</h3>
+ <h3>Geography     : {{geo}}</h3>
+ <h3>Gender        : {{gender}}</h3>
+ <h3>Age           : {{age}}</h3>
+ <h3>Tenure        : {{tenure}}</h3>
+ <h3>Balance       : {{balance}}</h3>
+ <h3>NumofProducts : {{numpro}}</h3>
+ <h3>HasCrCard     : {{hascard}}</h3>
+ <h3>IsActiveMember: {{activemem}}</h3>
+ <h3>Salary        : {{salary}}</h3>
+
+<a href="javascript:history.back()" class="button">Go back </a>
+<br>
+<a href="/backtofile" class="button">Go back to file upload</a>
+<br>
+<a href="/logout" class="button">Logout</a>
+<br>
+<br>
+<font size=4>Built for DHFL Hackathon by Ashish Bhawnani, Nipun Binjola, Akash Rana, Rahul Chauhan</font>
+<br>
+</div>
+
+  <div class="column2">
+<font color=purple>
+<center><h2><u>Prediction of Customer Churn Probability</u></h2></center></font>
+    	<canvas id="cvs" width="780" height="200">
+    	[No canvas support]
+	</canvas>
+
+<font color=orange>
+     <center><h3>Probability to leave organization is {{ firstname }}%</h3></center></font>
+<hr>
+	<script>
+    	
+    meter = new RGraph.Meter({
+        id: 'cvs',
+        min: 0,
+        max: 100,
+        value:  [{% for item in values %}
+                      {{item}},
+                    {% endfor %}],
+        options: {
+            segmentRadiusStart: 125,
+            needleRadius: 115,
+            needleType: 'pointer',
+            tickmarksBigColor: 'transparent',
+            tickmarksSmallColor: 'transparent',
+            labels: false,
+            linewidth: 0.0001,
+            linewidthSegments: 20,
+            strokestyle: 'white',
+            colorsRanges: [
+                [0, 33, '#8FCE21'],
+                [33, 66, '#FFC900'],
+                [66, 100, '#FF0000']
+            ]
+        }
+    }).grow();
+    
+    
+</script>
+<font color=purple>
+<center><h4>If the above probability of leaving becomes true and customer leaves, then what might be unsatisfactory factors contributing to his reason for leaving? Our Pie Graph shows the prediction for that</h4><h2><u>Prediction of Reason for Leaving<u></h2></center></font>
+<div class ="row">
+<div class="column1"><center><canvas id="chart" width="500" height="400"></canvas></center>
+<script>
+   var pieData = [
+            {% for item,label,colors in set %}
+                {
+                    value: {{item}},
+                    label: "{{label}}",
+		    color : "{{colors}}"	
+                },
+                {% endfor %}
+ 		
+ 
+         ];
+ 
+   // get bar chart canvas
+   var mychart = document.getElementById("chart").getContext("2d");
+ 
+   steps = 20
+   max = 20
+   // draw pie chart
+   new Chart(document.getElementById("chart").getContext("2d")).Pie(pieData);
+ 
+</script>
+</div>
+<div style="float:left;  padding-left: 200px;">
+
+<ul style="list-style-type:none">
+<li>
+    <div style="font-family:verdana; font-size:75% ; background: #ABCDEF;width: 100px; padding:10px ;height: 100px;color:#F0FFFF">Long Response Times: {{secondname3}}%</div>
+    <div style="font-family:verdana;font-size:75% ;background: #FDB45C;width: 100px;height: 100px;padding:10px;color:#F0FFFF"> Inexperienced Staff / Bad customer service: {{secondname2}}% </div>	
+</li>
+
+<li>
+    <div style="font-family:verdana;font-size:75% ;background: #46BFBD;width: 100px;height: 100px;padding:10px;color:#F0FFFF">High Service Charges/Rate of Interest: {{secondname1}}%</div>
+    <div style="font-family:verdana;font-size:75% ;background: #F7464A;width: 100px;height: 100px;padding:10px;color:#F0FFFF">Excess Documents Required: {{secondname}}%</div> 	
+</li>
+</ul>
+</div>
+</div>
+   
+</div>
+</div>
+</body>
+</html>

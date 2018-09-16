@@ -1,0 +1,162 @@
+<html ><head><meta charset="utf-8" /> <script src="/static/js/RGraph.common.core.js"></script>
+<script src="/static/js/RGraph.common.dynamic.js"></script>
+<script src="/static/js/RGraph.common.tooltips.js"></script>
+<script src="/static/js/RGraph.hbar.js"></script>
+<script src="/static/js/RGraph.common.key.js"></script></head>
+
+   <body>
+ <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+  <div class="login">
+            <div class="login-screen">
+                <div class="app-title">
+                <h2>Predict Churn and Reason using Customer ID of customer from list of uploaded file</h2>
+                </div>
+    
+                <div class="login-form">
+                    <div class="control-group">
+			
+                       <select name= dropdown_list method="GET" action="/" form="myform" id="dropdown">
+                        {% for each in dropdown_list %}
+                        <option value="{{each}}" SELECTED>{{each}}</option>
+                       {% endfor %}
+                        </select>
+			
+                    </div>   
+		 
+		    <button onclick="sendurl();" class="btn btn-primary btn-large btn-block">Predict</button>
+                  
+                </div>
+            </div>
+        </div>
+ 
+
+ <div class="login">
+            <div class="login-screen">
+                <div class="app-title">
+                    <h2>Show Top X% Customers Most Probable to Leave</h2>
+                </div>
+    		  <div class="login-form">
+               
+                 <form name="input%"  action="/input_percent" onsubmit= "return validate()" method = POST >
+    		<input type="text" placeholder="Enter Value of X (Top X%)" name = in class="input"><br>
+   		<input type="submit" value="Show" class="btn btn-primary btn-large btn-block">
+		</form>
+		</div>
+               
+            </div>
+        </div>
+
+<div class="login">
+<div class="login-screen">
+                
+                <div class="login-form">
+               
+		 <button onclick="sendurl1();" class="btn btn-primary btn-large btn-block">Top 2 Customers Likely to Leave</button><br><button onclick="sendurl4();"  class="btn btn-primary btn-large btn-block">Top 4 Customers Likely to Leave</button>
+		   <br>
+		<button onclick="sendurl2();" class="btn btn-primary btn-large btn-block">Go back and Use another or default file</button>
+                   
+                   
+                </div>
+            </div>
+
+        </div>
+ 
+
+<center>
+<canvas id="cvss" width="600" height="400" style="display:none;">
+    [No canvas support]
+</canvas>
+<center>
+<script>
+    window.onload = function ()
+    {
+        var hbar = new RGraph.HBar({
+            id: 'cvss',
+            data:    [{% for item in values_res %}
+                      {{item}},
+                    {% endfor %}],
+            options: {
+                backgroundGrid: false,
+                xmax: 100,
+                scaleDecimals: 1,
+                colors: ['#FDB515','#FDB515','#FDB515','#FDB515','#FDB515'],
+                colorsSequential: true,
+		tooltips: [
+                {% for l in lab %}
+                 'link : <a href="/check/{{l}}" value="{{l}}" >{{l}}</a>',
+                 {% endfor %}],	
+                labels:  [{% for item in lab %}
+                      "{{item}}",
+                    {% endfor %}],
+		
+                labelsAbove: true,
+                labelsAboveDecimals: 1,
+		labelsAboveUnitsPost: '%',
+                noxaxis: true,
+                gutterLeft: 125,
+                xlabels: false,
+                textAccessible: true
+            }
+        }).grow();
+    };
+</script>
+
+<script>
+    function sendurl1() {
+	document.getElementById('cvss').style.display='block';
+        window.location.assign("/uploader/data/2");
+	document.getElementById('cvss').style.display='block';
+	
+	
+    }
+</script>
+<script>
+if (window.location.pathname=="/uploader/data/2" || window.location.pathname=="/uploader/data/4"){
+	document.getElementById('cvss').style.display='block';
+}
+
+</script>
+<script>
+function showChart(){
+     document.getElementById('cvs').style.display='block';
+     }
+</script>
+
+
+
+<script>
+    function sendurl4() {
+        window.location.assign("/uploader/data/4");
+	document.getElementById('cvss').style.display='block';
+	
+    }
+</script>
+
+
+
+
+<script>
+
+function sendurl(){
+	window.location.assign("/check/"+document.getElementById("dropdown").value);
+}
+function sendurl2(){
+	window.location.assign("/backtofile");
+}
+function validate() {
+    var x = document.forms["input%"]["in"].value;
+        if (x == "") {
+            alert("No input provided");
+            return false;
+        }
+    }
+
+</script>
+
+
+
+ 
+
+</body>
+</html>
+      

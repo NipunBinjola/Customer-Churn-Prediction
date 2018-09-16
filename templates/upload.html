@@ -1,0 +1,70 @@
+<html>
+
+<head><link rel="stylesheet" href="/static/css/style.css" type="text/css">
+<style>
+.button {
+    background-color: #FFFFFF;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style
+ </head>
+   <body>
+      <script>
+    function validate() {
+      var x = document.forms["upload"]["file"].value;
+      if (x == "") {
+        alert("No File provided");
+        return false;
+      }
+    }
+
+  </script>
+	
+   <div class="login-form">
+      <form name="upload" action = "/uploader" method = "POST" onsubmit= "return validate()" enctype = "multipart/form-data">
+	 <div class="login">
+            <div class="login-screen">
+              <div class="app-title">
+               <h2>Upload Test Data File To Predict</h2>                                  
+              </div>
+ 		<div class="login-form">
+                <div class="control-group">
+                   <pre> <input type = "file" name = "file" />                                    
+                </div>
+		
+         <input type = "submit" value="Predict" class="btn btn-primary btn-large btn-block">
+      </div>
+     </div>
+    </div>  
+
+</form>
+        <div class="login-form">
+      <form action = "/defaultfile" method = "POST" 
+         enctype = "multipart/form-data">
+	 <div class="login">
+            <div class="login-screen">
+              <div class="app-title">
+                <h2>Use Default Test Data File To Predict</h2>                                  
+              </div>
+ 		<div class="login-form">
+                <div class="control-group">
+                                                
+                </div>
+		
+        
+         <input type = "submit" value="Predict" class="btn btn-primary btn-large btn-block">
+      </div>
+     </div>
+    </div>
+
+<center><a href="/logout" class="button">Logout</a><center>
+   </body>
+</html>
