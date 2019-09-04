@@ -88,7 +88,7 @@ It shows the prediction further , smiliar to Default file shown :
 ![untitled2](https://user-images.githubusercontent.com/31181537/45590398-2f328980-b955-11e8-9afb-b0951b122214.png)
 
 
-As shown , the **Enter input X% ** is still available , along with interactive data representation . 
+As shown , the **Enter input X%** is still available , along with interactive data representation . 
 
 ![screenshot 11](https://user-images.githubusercontent.com/31181537/45590218-55eec100-b951-11e8-89b5-be93f154c6b2.png)
 
